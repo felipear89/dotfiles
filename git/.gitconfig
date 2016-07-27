@@ -111,3 +111,12 @@
     default = matching
 [core]
 	excludesfile = /Users/frodr30/.gitignore_global
+[diff]
+	tool = diffmerge
+[difftool "diffmerge"]
+	cmd = /usr/local/bin/diffmerge \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = diffmerge
+[mergetool "diffmerge"]
+	trustExitCode = true
+	cmd = /usr/local/bin/diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
