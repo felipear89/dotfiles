@@ -13,7 +13,7 @@
 # nvm
 # tmux
 
-open "${HOME}/.dotfiles/iterm/Chalk.itermcolors"
+open "${HOME}/.dotfiles/iterm/Afterglow.itermcolors"
 
 brew install wget
 brew install ack

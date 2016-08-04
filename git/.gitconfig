@@ -58,7 +58,8 @@
   ds   = diff --staged # Diff index to HEAD
   dc   = diff --staged # Diff index to HEAD
   dh   = diff HEAD     # Diff working dir and index to HEAD
-  dl = diff HEAD~1..HEAD
+  dl   = diff HEAD~1..HEAD
+  dt   = difftool
   hub  = browse
   hubd = compare
 
@@ -111,6 +112,7 @@
     default = matching
 [core]
 	excludesfile = /Users/frodr30/.gitignore_global
+	editor = /usr/bin/vim
 [diff]
 	tool = diffmerge
 [difftool "diffmerge"]
