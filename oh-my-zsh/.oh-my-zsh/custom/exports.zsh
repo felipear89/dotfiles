@@ -6,7 +6,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="$HOME/.rbenv/bin:$PATH"
-
+eval "$(rbenv init -)"
 export HISTSIZE=5000
 
 export JAVA_HOME=$(/usr/libexec/java_home)

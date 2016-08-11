@@ -60,6 +60,8 @@
   dh   = diff HEAD     # Diff working dir and index to HEAD
   dl   = diff HEAD~1..HEAD
   dt   = difftool
+  dtc  = difftool --cached
+  dtn  = diff --name-only
   hub  = browse
   hubd = compare
 
