@@ -11,23 +11,18 @@ stow is available for all linux and most other unix like distributions via your 
 or clone it [from source](https://savannah.gnu.org/git/?group=stow) and [build it](http://git.savannah.gnu.org/cgit/stow.git/tree/INSTALL) yourself.
 
 #how it works
-by default the stow command will create symlinks for files in the parent directory of where you execute the command. so my dotfiles setup assumes this repo is located in the root of your home directory `~/dotfiles`. and all stow commands should be executed in that tall the zsh settings
+by default the stow command will create symlinks for files in the parent directory of where you execute the command. so my dotfiles setup assumes this repo is located in the root of your home directory `~/.dotfiles`. and all stow commands should be executed in that tall the oh-my-zsh settings
 
-`stow zsh`
+`stow oh-my-zsh`
 
 install zsh settings for the root user
 
 `sudo stow zsh -t /root`
 
-install awesomewm theme
+install vim
 
-`stow awesome`
+`stow vim`
 
-uninstall awesome theme
+uninstall vim
 
-`stow -D awesome`
-
-install herbstluftwm
-
-`stow herbstluftwm`
-
+`stow -D vim`
