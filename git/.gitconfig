@@ -114,7 +114,7 @@
     default = matching
 [core]
 	excludesfile = /Users/frodr30/.gitignore_global
-	editor = /usr/bin/vim
+	editor = subl 
 [diff]
 	tool = diffmerge
 [difftool "diffmerge"]
