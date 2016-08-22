@@ -16,4 +16,4 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 # export DOCKER_CERT_PATH="$HOME/.docker/machine/machines/default"
 # export DOCKER_MACHINE_NAME="default"
 
-export PATH=~/Code/mongodb/bin:$PATH
+export PATH=~/Development/mongodb/bin:$PATH
