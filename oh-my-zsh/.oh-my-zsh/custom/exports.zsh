@@ -17,3 +17,5 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 # export DOCKER_MACHINE_NAME="default"
 
 export PATH=~/Development/mongodb/bin:$PATH
+
+eval "$(pyenv init -)"

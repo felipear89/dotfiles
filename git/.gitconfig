@@ -21,6 +21,8 @@
   bs = show-branch
   bS = show-branch -a
 
+  find = "!git ls-files | grep -i"
+
   # checkout/fetch/merge/push/rebase
   # checkout
   co  = checkout
@@ -44,6 +46,9 @@
   rs  = rebase --skip
   rom = rebase origin/master
 
+  lasttag = describe --tags --abbrev=0
+  lt = describe --tags --abbrev=0
+
   # commit
   c      = commit -v
   ca     = commit --all -v
@@ -62,8 +67,13 @@
   dt   = difftool
   dtc  = difftool --cached
   dtn  = diff --name-only
+  dw   = diff --color-words
   hub  = browse
   hubd = compare
+  prior-hash      = "!ph() { git log --pretty=format:'%h' -1 --skip=$1 $2; }; ph"
+  diff-prev-easy  = "!dp() { git diff $(git prior-hash $1 $2).. $2; }; dp"
+  diff-prev       = "!dp() { git diff $(git prior-hash $1 $2)..$(git prior-hash $(($1 - 1)) $2) $2; }; dp"
+  
 
   # index
   s  = status
@@ -114,13 +124,18 @@
     default = matching
 [core]
 	excludesfile = /Users/frodr30/.gitignore_global
-	editor = subl 
+	editor = subl -n -w
+
 [diff]
-	tool = diffmerge
-[difftool "diffmerge"]
-	cmd = /usr/local/bin/diffmerge \"$LOCAL\" \"$REMOTE\"
+	tool = p4mergetool
+[difftool "p4mergetool"]
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+
 [merge]
-	tool = diffmerge
-[mergetool "diffmerge"]
-	trustExitCode = true
-	cmd = /usr/local/bin/diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	tool = p4mergetool
+[mergetool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$LOCAL $PWD/$REMOTE $PWD/$MERGED
+	trustExitCode = false
+  keepBackup = false
+  keepTemporaries = false
+	
