@@ -6,6 +6,7 @@ I use stow to create symbolic links and brew to install my favorite apps
 
 2. Checkout: `git clone git@github.com:felipear89/dotfiles.git ~/.dotfiles`
 3. Give permission to run: `chmod +x ~/.dotfiles/bin/install.sh`
+4. Run: `~/.dotfiles/bin/install.sh`
 
 # Jump between words in iTerm2:
 1. Go to iTerm2 Preferences (⌘,)

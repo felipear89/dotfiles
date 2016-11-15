@@ -1,12 +1,16 @@
+#!/bin/bash
+
 echo "Starting"
 
 brew cask install java
 brew cask install sublime-text
-brew cask install intellij-idea
+brew cask install Caskroom/versions/intellij-idea-ce
 brew cask install vlc
 brew cask install transmission
 brew cask install google-chrome
 brew cask install p4merge
+brew cask install dropbox
+brew cask install docker
 
 brew install zsh
 brew install stow
@@ -28,6 +32,11 @@ then
     sudo chsh -s "$(command -v zsh)" "${USER}"
 fi
 
+cd $HOME/.dotfiles
+stow git
+stow oh-my-zsh
+stow ssh
+
 if ! which pip >/dev/null; then
 	echo "Installing PIP"
     wget https://bootstrap.pypa.io/get-pip.py -O /tmp/get-pip.py
@@ -41,8 +50,3 @@ fi
 if ! [ -d "${HOME}/.gvm" ]; then
 	zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 fi
-
-cd $HOME/.dotfiles
-stow git
-stow oh-my-zsh
-stow ssh
