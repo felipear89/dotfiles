@@ -1,28 +1,22 @@
-#managing
-i manage mine with [gnu stow](http://www.gnu.org/software/stow/), a free, portable, lightweight symlink farm manager. this allows me to keep a versioned directory of all my config files that are virtually linked into place via a single command. this makes sharing these files among many users (root) and computers super simple. and does not clutter your home directory with version control files.
+# My dotfiles
+I use stow to create symbolic links and brew to install my favorite apps
 
-#installing
-stow is available for all linux and most other unix like distributions via your package manager.
+# Just do it
+1. Install HomeBrew: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-- `sudo pacman -S stow`
-- `sudo apt-get install stow`
-- `brew install stow`
+2. Checkout: `git clone git@github.com:felipear89/dotfiles.git ~/.dotfiles`
+3. Give permission to run: `chmod +x ~/.dotfiles/bin/install.sh`
 
-or clone it [from source](https://savannah.gnu.org/git/?group=stow) and [build it](http://git.savannah.gnu.org/cgit/stow.git/tree/INSTALL) yourself.
-
-#how it works
-by default the stow command will create symlinks for files in the parent directory of where you execute the command. so my dotfiles setup assumes this repo is located in the root of your home directory `~/.dotfiles`. and all stow commands should be executed in that tall the oh-my-zsh settings
-
-`stow oh-my-zsh`
-
-install zsh settings for the root user
-
-`sudo stow zsh -t /root`
-
-install vim
-
-`stow vim`
-
-uninstall vim
-
-`stow -D vim`
+# Jump between words in iTerm2:
+1. Go to iTerm2 Preferences (⌘,)
+2. Open the “Keys” tab
+3. Add the following Global Shortcut Keys
+4. Jump to beginning of word `Keyboard Combination: ⌥←
+Action: Send Escape Sequence
+Escape: b`
+5. Jump to end of word `Keyboard Combination: ⌥→
+Action: Send Escape Sequence
+Escape: f`
+6. Open the “Profiles” tab
+7. Click the sub-tab ”Keys”
+8. Remove the mappings for key combinations ⌥← and ⌥→
