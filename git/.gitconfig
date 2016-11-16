@@ -139,3 +139,5 @@
   keepBackup = false
   keepTemporaries = false
 	
+[pull]
+	rebase = true
