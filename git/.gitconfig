@@ -113,17 +113,17 @@
 [branch]
   autosetuprebase = always
 
-[push]
-  default = current
-
 [branch "master"]
   remote = origin
   merge = refs/heads/master
 
 [push]
-    default = matching
+	default = simple
+[pull]
+  rebase = true
+
 [core]
-	excludesfile = /Users/frodr30/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = subl -n -w
 
 [diff]
@@ -138,6 +138,3 @@
 	trustExitCode = false
   keepBackup = false
   keepTemporaries = false
-	
-[pull]
-	rebase = true
