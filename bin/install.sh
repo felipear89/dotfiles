@@ -11,6 +11,7 @@ brew cask install google-chrome
 brew cask install p4merge
 brew cask install dropbox
 brew cask install docker
+brew cask install anki
 
 brew install zsh
 brew install stow
