@@ -15,3 +15,4 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Load pyenv
 eval "$(pyenv init -)"
+source $(brew --prefix autoenv)/activate.sh

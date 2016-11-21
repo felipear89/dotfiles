@@ -2,11 +2,9 @@
 I use stow to create symbolic links and brew to install my favorite apps
 
 # Just do it
-1. Install HomeBrew: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-
-2. Checkout: `git clone git@github.com:felipear89/dotfiles.git ~/.dotfiles`
-3. Give permission to run: `chmod +x ~/.dotfiles/bin/install.sh`
-4. Run: `~/.dotfiles/bin/install.sh`
+1. Checkout: `git clone git@github.com:felipear89/dotfiles.git ~/.dotfiles`
+2. Give permission to run: `chmod +x ~/.dotfiles/bin/install.sh`
+3. Run: `~/.dotfiles/bin/install.sh`
 
 # Jump between words in iTerm2:
 1. Go to iTerm2 Preferences (⌘,)
