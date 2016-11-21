@@ -138,3 +138,5 @@
 	trustExitCode = false
   keepBackup = false
   keepTemporaries = false
+[commit]
+	template = ~/.git_commit_msg.txt
