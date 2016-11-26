@@ -9,6 +9,8 @@ export NVM_DIR="$HOME/.nvm"
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
+export EDITOR="vim"
+
 # export PATH=~/Development/mongodb/bin:$PATH
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"

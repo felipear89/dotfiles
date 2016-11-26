@@ -36,6 +36,7 @@
   mom = merge origin/master
   # push
   p   = push
+  po  = push -u origin
   pa  = push --all
   pt  = push --tags
   # rebase
