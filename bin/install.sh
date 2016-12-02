@@ -20,6 +20,7 @@ brew cask install dropbox
 brew cask install docker
 brew cask install anki
 brew cask install postman
+brew cask install itau
 brew install zsh
 brew install stow
 brew install wget
@@ -60,7 +61,11 @@ if ! [ -d "${HOME}/.gvm" ]; then
 fi
 
 # Python setup
-pyenv install 3.5.2
+pyversion=$( pyenv version )
+if [[ ! $pyversion == *"3.5.2"* ]]
+then
+  pyenv install 3.5.2
+fi
 pyenv global 3.5.2
 if ! which pip >/dev/null; then
     echo "Installing PIP"
