@@ -20,7 +20,7 @@ brew cask install dropbox
 brew cask install docker
 brew cask install anki
 brew cask install postman
-brew cask install itau
+brew cask install keepingyouawake
 brew install zsh
 brew install stow
 brew install wget
@@ -32,8 +32,10 @@ brew install autoenv
 brew install postgresql
 brew install httpie
 brew install redis
+brew update
+brew upgrade
 brew cleanup
-
+brew cask list | xargs brew cask install --force
 
 if ! [ -d "${HOME}/.oh-my-zsh" ]; then
     echo "Installing oh-my-zsh"
