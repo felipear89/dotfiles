@@ -10,7 +10,6 @@ if ! which brew >/dev/null; then
 fi
 
 brew cask install java
-brew cask install sublime-text
 brew cask install Caskroom/versions/intellij-idea-ce
 brew cask install vlc
 brew cask install transmission
@@ -21,6 +20,9 @@ brew cask install docker
 brew cask install anki
 brew cask install postman
 brew cask install keepingyouawake
+brew cask install sublime-text
+brew cask install visual-studio-code
+brew cask install robomongo
 brew install zsh
 brew install stow
 brew install wget
@@ -32,6 +34,7 @@ brew install autoenv
 brew install postgresql
 brew install httpie
 brew install redis
+brew install mongodb
 brew update
 brew upgrade
 brew cleanup
@@ -75,5 +78,4 @@ if ! which pip >/dev/null; then
     sudo python /tmp/get-pip.py
     sudo pip install virtualenv
 fi
-
 
