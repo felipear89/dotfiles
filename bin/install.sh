@@ -79,3 +79,6 @@ if ! which pip >/dev/null; then
     sudo pip install virtualenv
 fi
 
+# Create data directory. Required by mongodb
+sudo mkdir -p /data/db
+sudo chown -R `id -u` /data/db
