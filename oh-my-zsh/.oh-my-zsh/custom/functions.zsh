@@ -108,3 +108,12 @@ shellswitch () {
 	chsh -s $(brew --prefix)/bin/$1
 }
 
+git_checkout_all() {
+	for branch in `git branch -a | grep remotes | grep -v HEAD | grep -v master `; do
+		git branch --track ${branch#remotes/origin/} $branch
+	done
+}
+
+git_remove_merged_remote() {
+	git branch -r --merged | grep origin | grep -v -e master | sed s/origin\\/// |  xargs -I{} git push origin --delete {}
+}
