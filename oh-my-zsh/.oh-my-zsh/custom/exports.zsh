@@ -7,7 +7,7 @@ export HISTSIZE=5000
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
-export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
 
 export EDITOR="vim"
 
