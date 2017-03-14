@@ -9,8 +9,19 @@ if ! which brew >/dev/null; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew cask install java
-brew cask install Caskroom/versions/intellij-idea-ce
+
+if ! which sdk >/dev/null; then
+    curl -s "https://get.sdkman.io" | bash
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
+sdk install java
+
+brew update
+brew upgrade
+brew cleanup
+
+brew cask install intellij-idea-ce
 brew cask install vlc
 brew cask install transmission
 brew cask install google-chrome
@@ -31,13 +42,7 @@ brew install nvm
 brew install pyenv
 brew install heroku
 brew install autoenv
-brew install postgresql
 brew install httpie
-brew install redis
-brew install mongodb
-brew update
-brew upgrade
-brew cleanup
 brew cask list | xargs brew cask install --force
 
 if ! [ -d "${HOME}/.oh-my-zsh" ]; then
@@ -79,6 +84,3 @@ if ! which pip >/dev/null; then
     sudo pip install virtualenv
 fi
 
-# Create data directory. Required by mongodb
-sudo mkdir -p /data/db
-sudo chown -R `id -u` /data/db
