@@ -63,7 +63,7 @@
   re  = remote
   rel = remote --verbose
   rea  = remote add
-  reau = remote add upstream
+  reau = remote add upstream # + repo url
   rex = remote rm
   rem = remote rename
 

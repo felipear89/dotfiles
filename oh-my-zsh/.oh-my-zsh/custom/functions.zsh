@@ -117,3 +117,9 @@ git_checkout_all() {
 git_remove_merged_remote() {
 	git branch -r --merged | grep origin | grep -v -e master | sed s/origin\\/// |  xargs -I{} git push origin --delete {}
 }
+
+syncing_fork() {
+	git fetch upstream
+	git checkout master
+	git merge upstream/master
+}
