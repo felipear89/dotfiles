@@ -21,9 +21,7 @@ brew update
 brew upgrade
 brew cleanup
 
-brew cask install intellij-idea-ce
 brew cask install vlc
-brew cask install transmission
 brew cask install google-chrome
 brew cask install p4merge
 brew cask install docker
