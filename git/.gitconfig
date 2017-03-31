@@ -35,9 +35,12 @@
   pa  = push --all
   pt  = push --tags
 
-  # checkout
-  co  = checkout
-  co0 = checkout HEAD --
+  # clean up
+  co   = checkout
+  coh  = checkout HEAD -- 
+  cos  = reset
+
+
   # commit
   c      = commit -v
   ca     = commit --all -v
@@ -54,6 +57,9 @@
   dt   = difftool
   dtc  = difftool --cached
   dw   = diff --color-words
+
+  # mergetool
+  mt = mergetool
 
   # rebase
   r   = rebase
@@ -73,9 +79,8 @@
   a     = add
 
   # reset
-  z     = reset
-  zs     = reset --soft "HEAD^"
-  zh     = reset --hard "HEAD^"
+  zs    = reset --soft "HEAD^"
+  zh    = reset --hard "HEAD^"
 
   # tags
   lt = describe --tags --abbrev=0
@@ -128,7 +133,7 @@
 [merge]
 	tool = p4mergetool
 [mergetool "p4mergetool"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$LOCAL $PWD/$REMOTE $PWD/$MERGED
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
 	trustExitCode = false
   keepBackup = false
   keepTemporaries = false
