@@ -119,7 +119,7 @@
   merge = refs/heads/master
 
 [push]
-	default = simple
+	default = upstream
 [pull]
   rebase = true
 
