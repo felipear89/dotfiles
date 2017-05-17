@@ -104,6 +104,8 @@
   prior-hash      = "!ph() { git log --pretty=format:'%h' -1 --skip=$1 $2; }; ph"
   diff-prev-easy  = "!dp() { git diff $(git prior-hash $1 $2).. $2; }; dp"
   diff-prev       = "!dp() { git diff $(git prior-hash $1 $2)..$(git prior-hash $(($1 - 1)) $2) $2; }; dp"
+  difftool-prev-easy  = "!dp() { git difftool $(git prior-hash $1 $2).. $2; }; dp"
+  difftool-prev       = "!dp() { git difftool $(git prior-hash $1 $2)..$(git prior-hash $(($1 - 1)) $2) $2; }; dp"
 
   # cleanup
   cleanup-local = ! git branch --merged | grep -v "\\*" | grep -v master | xargs -n 1 git branch -d
