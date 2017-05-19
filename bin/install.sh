@@ -21,8 +21,6 @@ brew update
 brew upgrade
 brew cleanup
 
-brew cask install vlc
-brew cask install google-chrome
 brew cask install p4merge
 brew cask install docker
 brew cask install anki
@@ -69,11 +67,11 @@ fi
 
 # Python setup
 pyversion=$( pyenv version )
-if [[ ! $pyversion == *"3.5.2"* ]]
+if [[ ! $pyversion == *"3.6.0"* ]]
 then
-  pyenv install 3.5.2
+  pyenv install 3.6.0
 fi
-pyenv global 3.5.2
+pyenv global 3.6.0
 if ! which pip >/dev/null; then
     echo "Installing PIP"
     wget https://bootstrap.pypa.io/get-pip.py -O /tmp/get-pip.py
