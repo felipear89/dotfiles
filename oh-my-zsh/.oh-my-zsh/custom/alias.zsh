@@ -9,8 +9,8 @@ alias .....="cd ../../../.."
 alias cp='cp -v'
 alias mv='mv -v'
 
-alias gzip_=tar -zcvf
-alias bzip_=tar -jcvf
+alias gzip_='tar -zcvf'
+alias bzip_='tar -jcvf'
 
 alias diskspace_report="df -P -kHl"
 
