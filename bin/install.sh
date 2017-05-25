@@ -1,21 +1,17 @@
 #!/bin/bash
 
-echo "Starting"
+echo "Starting..."
 
 xcode-select --install
 
-# Check Homebrew
 if ! which brew >/dev/null; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
-
 
 if ! which sdk >/dev/null; then
     curl -s "https://get.sdkman.io" | bash
     source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
-
-sdk install java
 
 brew update
 brew upgrade
@@ -23,7 +19,6 @@ brew cleanup
 
 brew cask install p4merge
 brew cask install docker
-brew cask install anki
 brew cask install postman
 brew cask install keepingyouawake
 brew cask install sublime-text
@@ -31,13 +26,13 @@ brew cask install visual-studio-code
 brew cask install robomongo
 brew install zsh
 brew install stow
-brew install wget
-brew install ack
 brew install nvm
 brew install pyenv
+brew install rbenv 
+brew install wget
+brew install ack
 brew install heroku
 brew install autoenv
-brew install httpie
 brew cask list | xargs brew cask install --force
 
 if ! [ -d "${HOME}/.oh-my-zsh" ]; then
@@ -55,23 +50,21 @@ stow git
 stow oh-my-zsh
 stow ssh
 
+rbenv init
+eval "$(rbenv init -)"
+
 # Node Version Manager
 if ! [ -d "${HOME}/.nvm" ]; then
     mkdir ~/.nvm
 fi
 
-# Go Version Manager
-if ! [ -d "${HOME}/.gvm" ]; then
-    zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-fi
-
 # Python setup
 pyversion=$( pyenv version )
-if [[ ! $pyversion == *"3.6.0"* ]]
-then
+if [[ ! $pyversion == *"3.6.0"* ]]; then
   pyenv install 3.6.0
 fi
 pyenv global 3.6.0
+
 if ! which pip >/dev/null; then
     echo "Installing PIP"
     wget https://bootstrap.pypa.io/get-pip.py -O /tmp/get-pip.py
@@ -79,3 +72,9 @@ if ! which pip >/dev/null; then
     sudo pip install virtualenv
 fi
 
+rbenv install 2.4.1
+rbenv global 2.4.1
+
+sdk install java 8u131
+sdk default java 8u131
+sdk install maven

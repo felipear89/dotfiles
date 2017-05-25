@@ -15,8 +15,8 @@
   bs = show-branch -a
   bc = checkout -b
   bl = branch -av
-  bd = branch --delete
-  bD = branch --delete --force
+  bx = branch --delete
+  bX = branch --delete --force
   bm = branch --move
   bM = branch --move --force
   
@@ -24,10 +24,15 @@
   f   = fetch
   fm  = pull # fetch and merge
   fo  = fetch origin
+  fu  = fetch upstream
   
   # merge
   m   = merge
   mom = merge origin/master
+
+  # rebase
+  r   = rebase
+  rom = rebase origin/master
   
   # push
   p   = push
@@ -35,11 +40,10 @@
   pa  = push --all
   pt  = push --tags
 
-  # clean up
+  # index
+  s   = status
+  a   = add
   co   = checkout
-  coh  = checkout HEAD -- 
-  cos  = reset
-
 
   # commit
   c      = commit -v
@@ -47,13 +51,11 @@
   cm     = commit --message
   cam    = commit --all --message
   camend = commit --amend --reuse-message HEAD
-  cp     = cherry-pick
 
   # diff
-  d    = diff          # Diff working dir to index
-  dc   = diff --staged # Diff index to HEAD
-  dh   = diff HEAD     # Diff working dir and index to HEAD
-  dl   = diff HEAD~1..HEAD
+  d    = diff               # Diff working dir to index
+  dc   = diff --staged      # Diff index to HEAD
+  dl   = diff HEAD~1..HEAD  # diff last commit and  head
   dt   = difftool
   dtc  = difftool --cached
   dw   = diff --color-words
@@ -61,46 +63,28 @@
   # mergetool
   mt = mergetool
 
-  # rebase
-  r   = rebase
-  rom = rebase origin/master
-
   # remote
   re  = remote
-  rel = remote --verbose
-  rea  = remote add
-  reau = remote add upstream # + repo url
-  rex = remote rm
-  rem = remote rename
-
-  # index
-  s     = status
-  sb    = status -sb
-  a     = add
 
   # reset
-  zs    = reset --soft "HEAD^"
-  zh    = reset --hard "HEAD^"
+  rt = reset
 
   # tags
   lt = describe --tags --abbrev=0
   lasttag = describe --tags --abbrev=0
 
   # log
+  lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   l   = log --topo-order --pretty=format:'%C(yellow)%h %C(cyan)%cn %C(blue)%cr%C(reset) %s'
   ls  = log --topo-order --stat --pretty=format:'%C(bold)%C(yellow)Commit:%C(reset) %C(yellow)%H%C(red)%d%n%C(bold)%C(yellow)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)%C(yellow)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B'
   ld  = log --topo-order --stat --patch --full-diff --pretty=format:'%C(bold)%C(yellow)Commit:%C(reset) %C(yellow)%H%C(red)%d%n%C(bold)%C(yellow)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)%C(yellow)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B'
-  lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   lga = log --topo-order --all --graph --pretty=format:'%C(yellow)%h %C(cyan)%cn%C(reset) %s %C(red)%d%C(reset)%n'
-  lm  = log --topo-order --pretty=format:'%s'
-  lh  = shortlog --summary --numbered
-  llf = fsck --lost-found
-
-  lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-  lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-
   lastweek = log --author=Felipe --pretty=oneline --all --abbrev-commit --since=7.day
+
   find = "!git ls-files | grep -i"
+  
   prior-hash      = "!ph() { git log --pretty=format:'%h' -1 --skip=$1 $2; }; ph"
   diff-prev-easy  = "!dp() { git diff $(git prior-hash $1 $2).. $2; }; dp"
   diff-prev       = "!dp() { git diff $(git prior-hash $1 $2)..$(git prior-hash $(($1 - 1)) $2) $2; }; dp"

@@ -12,8 +12,9 @@ export JAVA_HOME="$HOME/.sdkman/candidates/java/current/bin/java"
 export EDITOR="vim"
 
 # export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
+eval "$(rbenv init -)"
 
 # Load pyenv
 eval "$(pyenv init -)"
+
 source $(brew --prefix autoenv)/activate.sh
