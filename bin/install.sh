@@ -8,33 +8,29 @@ if ! which brew >/dev/null; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-if ! which sdk >/dev/null; then
-    curl -s "https://get.sdkman.io" | bash
-    source "$HOME/.sdkman/bin/sdkman-init.sh"
-fi
-
 brew update
 brew upgrade
 brew cleanup
 
 brew cask install p4merge
+brew cask install keepingyouawake
 brew cask install docker
 brew cask install postman
-brew cask install keepingyouawake
 brew cask install sublime-text
 brew cask install visual-studio-code
-brew cask install robomongo
 brew install zsh
 brew install stow
-brew install nvm
-brew install pyenv
-brew install rbenv 
 brew install wget
 brew install ack
-brew install heroku
+brew install htop
+brew install ssh-copy-id
+brew install git
+brew install nvm
+brew install pyenv
+brew install rbenv
 brew install autoenv
-brew cask list | xargs brew cask install --force
 
+# Install zsh
 if ! [ -d "${HOME}/.oh-my-zsh" ]; then
     echo "Installing oh-my-zsh"
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -45,36 +41,45 @@ if ! grep "/usr/local/bin/zsh" /etc/shells >/dev/null; then
     sudo chsh -s "$(command -v zsh)" "${USER}"
 fi
 
+# setup .dotfiles
 cd $HOME/.dotfiles
 stow git
 stow oh-my-zsh
 stow ssh
 
-rbenv init
-eval "$(rbenv init -)"
+# Setup rbenv
+if ! [ -d "${HOME}/.rbenv" ]; then
+    rbenv init
+    eval "$(rbenv init -)"
+    rbenv install 2.4.1
+    rbenv global 2.4.1
+fi
 
-# Node Version Manager
+# Setup nvm
 if ! [ -d "${HOME}/.nvm" ]; then
     mkdir ~/.nvm
+    export NVM_DIR="$HOME/.nvm"
+    . "/usr/local/opt/nvm/nvm.sh"
+    nvm install v7.10.0
 fi
 
-# Python setup
-pyversion=$( pyenv version )
-if [[ ! $pyversion == *"3.6.0"* ]]; then
-  pyenv install 3.6.0
+# Setup pyenv
+if ! [ -d "${HOME}/.pyenv" ]; then
+    pyenv install 3.6.0
+    pyenv global 3.6.0
 fi
-pyenv global 3.6.0
-
 if ! which pip >/dev/null; then
     echo "Installing PIP"
     wget https://bootstrap.pypa.io/get-pip.py -O /tmp/get-pip.py
     sudo python /tmp/get-pip.py
-    sudo pip install virtualenv
 fi
 
-rbenv install 2.4.1
-rbenv global 2.4.1
+# Setup Java
+if ! which sdk >/dev/null; then
+    curl -s "https://get.sdkman.io" | bash
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+    sdk install java 8u131
+    sdk default java 8u131
+    sdk install maven
+fi
 
-sdk install java 8u131
-sdk default java 8u131
-sdk install maven
