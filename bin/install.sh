@@ -19,6 +19,8 @@ brew cask install postman
 brew cask install sublime-text
 brew cask install visual-studio-code
 brew install zsh
+brew install hh
+brew install tig
 brew install stow
 brew install wget
 brew install ack
