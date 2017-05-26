@@ -75,7 +75,7 @@ if ! which pip >/dev/null; then
 fi
 
 # Setup Java
-if ! which sdk >/dev/null; then
+if ! [ -d "${HOME}/.sdkman" ]; then
     curl -s "https://get.sdkman.io" | bash
     source "$HOME/.sdkman/bin/sdkman-init.sh"
     sdk install java 8u131
