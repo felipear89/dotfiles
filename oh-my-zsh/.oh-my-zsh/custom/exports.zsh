@@ -17,8 +17,6 @@ eval "$(rbenv init -)"
 # Load pyenv
 eval "$(pyenv init -)"
 
-source $(brew --prefix autoenv)/activate.sh
-
 autoload bashcompinit && bashcompinit && autoload compinit && compinit && eval "$(register-python-argcomplete sytssh)"
 
 bindkey '^[^[[D' backward-word

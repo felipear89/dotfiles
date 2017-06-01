@@ -30,7 +30,6 @@ brew install git
 brew install nvm
 brew install pyenv
 brew install rbenv
-brew install autoenv
 
 # Install zsh
 if ! [ -d "${HOME}/.oh-my-zsh" ]; then
