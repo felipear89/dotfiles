@@ -30,6 +30,7 @@ brew install git
 brew install nvm
 brew install pyenv
 brew install rbenv
+brew install oath-toolkit # (umask 0077;pbpaste > ~/.totp_github) # totp() { oathtool --totp -b $(<~/".totp_${1:-wmt}") | pbcopy; }
 
 # Install zsh
 if ! [ -d "${HOME}/.oh-my-zsh" ]; then
