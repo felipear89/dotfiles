@@ -90,6 +90,8 @@
   diff-prev       = "!dp() { git diff $(git prior-hash $1 $2)..$(git prior-hash $(($1 - 1)) $2) $2; }; dp"
   difftool-prev-easy  = "!dp() { git difftool $(git prior-hash $1 $2).. $2; }; dp"
   difftool-prev       = "!dp() { git difftool $(git prior-hash $1 $2)..$(git prior-hash $(($1 - 1)) $2) $2; }; dp"
+  
+  first-commit = ! git rev-list ^master HEAD | tail -n 1
 
   # cleanup
   cleanup-local = ! git branch --merged | grep -v "\\*" | grep -v master | xargs -n 1 git branch -d
