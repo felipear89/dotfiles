@@ -16,7 +16,6 @@ brew cask install p4merge
 brew cask install keepingyouawake
 brew cask install docker
 brew cask install postman
-brew cask install sublime-text
 brew cask install visual-studio-code
 brew install zsh
 brew install hh
@@ -30,9 +29,10 @@ brew install git
 brew install nvm
 brew install pyenv
 brew install rbenv
+brew install goenv
 brew install oath-toolkit # (umask 0077;pbpaste > ~/.totp_github) # totp() { oathtool --totp -b $(<~/".totp_${1:-wmt}") | pbcopy; }
 
-# Install zsh
+# Install oh-my-zsh
 if ! [ -d "${HOME}/.oh-my-zsh" ]; then
     echo "Installing oh-my-zsh"
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -62,13 +62,13 @@ if ! [ -d "${HOME}/.nvm" ]; then
     mkdir ~/.nvm
     export NVM_DIR="$HOME/.nvm"
     . "/usr/local/opt/nvm/nvm.sh"
-    nvm install v7.10.0
 fi
 
 # Setup pyenv
 if ! [ -d "${HOME}/.pyenv" ]; then
-    pyenv install 3.6.0
-    pyenv global 3.6.0
+    pyenv install 3.6
+    pyenv install 2.7
+    pyenv global 3.6.2
 fi
 if ! which pip >/dev/null; then
     echo "Installing PIP"
@@ -84,4 +84,5 @@ if ! [ -d "${HOME}/.sdkman" ]; then
     sdk default java 8u131
     sdk install maven
 fi
+
 
