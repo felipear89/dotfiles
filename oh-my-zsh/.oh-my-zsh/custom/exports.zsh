@@ -18,6 +18,6 @@ eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 
 autoload bashcompinit && bashcompinit && autoload compinit && compinit && eval "$(register-python-argcomplete sytssh)"
-
+export GOPATH=$HOME/code/go
 eval "$(goenv init -)"
 
