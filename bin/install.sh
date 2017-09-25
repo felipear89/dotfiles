@@ -17,6 +17,8 @@ brew cask install keepingyouawake
 brew cask install docker
 brew cask install postman
 brew cask install visual-studio-code
+brew cask install caskroom/fonts/font-hack
+brew cask install keeweb
 brew install zsh
 brew install hh
 brew install tig
@@ -83,6 +85,11 @@ if ! [ -d "${HOME}/.sdkman" ]; then
     sdk install java 8u131
     sdk default java 8u131
     sdk install maven
+fi
+
+if ! [ -d "${HOME}/.goenv" ]; then
+    goenv install 1.9.0
+    goenv global 1.9.0
 fi
 
 
