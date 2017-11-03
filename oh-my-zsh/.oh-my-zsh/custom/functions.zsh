@@ -43,3 +43,31 @@ fi
 }
 
 totp() { oathtool --totp -b $(<~/".totp_${1:-wmt}") | pbcopy; }
+
+_commonVpn(){
+  local VPNName=$@;
+  local isnt_connected=`scutil --nc status "$VPNName" | sed -n 1p | grep -v Connected`;
+  if [[ ! -z $isnt_connected ]]; then
+    echo "Using VPN service: $VPNName";
+    local pass=$VPN_PASS;
+    local token=$VPN_TOKEN;
+    local suffix=`ruby -e "require 'rotp'; puts ROTP::TOTP.new('$token').now"`;
+    local vpn_pass="$pass$suffix";
+    scutil --nc start "$VPNName";
+    sleep 1.5;
+    osascript -e "tell application \"System Events\" to keystroke \"$vpn_pass\"";
+    osascript -e "tell application \"System Events\" to keystroke return";
+    sleep 2.5;
+    osascript -e "tell application \"System Events\" to keystroke return";
+  else
+    echo "Already Connected to VPN...";
+  fi
+}
+vpn (){
+  local VPNName='Brazil VPN Terremark'
+  _commonVpn $VPNName
+}
+dfwvpn (){
+  local VPNName='DFW VPN'
+  _commonVpn $VPNName
+}
