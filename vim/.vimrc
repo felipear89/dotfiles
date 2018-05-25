@@ -31,6 +31,7 @@ set wildmenu      			" visual autocomplete for command menu
 set visualbell    			" Use a visual bell instead of beeping
 set ruler         			" Show the line and column number of the cursor position
 set colorcolumn=120     " Add vertical color column
+set laststatus=2        " always show status line
 set number							" Show line number
 set history=1000        " remember more commands and search history
 set undolevels=1000     " use many muchos levels of undo
@@ -49,4 +50,19 @@ map <D-A-RIGHT> <C-w>l
 map <D-A-LEFT> <C-w>h
 map <D-A-DOWN> <C-w><C-w>
 map <D-A-UP> <C-w>W
+
+" Toggle display of the tree with <Leader> + n
+nmap <leader>n :NERDTreeToggle<CR>
+
+" Locate the focused file in the tree with <Leader> + j
+nmap <leader>j :NERDTreeFind<CR>
+
+" Always open the tree when booting Vim, but don’t focus it
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
+" Do not display some useless files in the tree
+let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
+
+
 
