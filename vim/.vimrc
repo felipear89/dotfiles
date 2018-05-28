@@ -14,10 +14,8 @@ set shiftwidth=2        " number of spaces to use for autoindenting
 set cursorline          " highlight current line
 set expandtab           " tabs are spaces
 
-colorscheme monokai
-set termguicolors " set t_Co=256  " vim-monokai now only support 256 colours in terminal.
-let g:monokai_term_italic = 1
-let g:monokai_gui_italic = 1
+let g:gruvbox_contrast_dark='medium'
+colorscheme gruvbox
 set guifont=hack:h14
 
 let mapleader=" "

@@ -21,3 +21,4 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 eval "$(goenv init -)"
 
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
