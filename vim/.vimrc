@@ -64,5 +64,22 @@ autocmd VimEnter * wincmd p
 " Do not display some useless files in the tree
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 
+" Change the default mapping and the default command to invoke CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
+" When invoked without an explicit starting directory, CtrlP will set its local working directory according to this variable
+let g:ctrlp_working_path_mode = 'ra'
 
+" Exclude files and directories using Vim's wildignore and CtrlP's own
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+" Ignore files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
