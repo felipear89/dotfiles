@@ -42,7 +42,7 @@ nnoremap <F3> :set hlsearch!<CR>
 
 " Fast saving
 nmap <leader>w :w!<cr>
-nmap <leader>q :qa<cr>
+nmap <leader>q :q<cr>
 
 autocmd BufWritePre * :%s/\s\+$//e " remove whitespaces on save.
 
@@ -64,6 +64,12 @@ autocmd VimEnter * wincmd p
 
 " Do not display some useless files in the tree
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
+" Press I (uppercase i) to toggle hidden files in the NERDTree explorer window.
+let NERDTreeShowHidden=1
+" Automatically close NerdTree when you open a file
+let NERDTreeQuitOnOpen = 1
+" Automatically close a tab if the only remaining window is NerdTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Change the default mapping and the default command to invoke CtrlP
 let g:ctrlp_map = '<c-p>'

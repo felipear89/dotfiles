@@ -23,3 +23,9 @@ Escape: f`
 ## Add vim plugins
 Ex:
 `git submodule add git@github.com:ctrlpvim/ctrlp.vim.git ~/.dotfiles/vim/.vim/bundle/ctrlp.vim`
+
+## Commands
+Execute git branches inside all sub folders
+`find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git branches" \;`
+Generate ctags
+`ctags -R .`
