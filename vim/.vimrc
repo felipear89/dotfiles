@@ -17,6 +17,7 @@ set expandtab           " tabs are spaces
 let g:gruvbox_contrast_dark='medium'
 colorscheme gruvbox
 set guifont=hack:h14
+set background=dark
 
 let mapleader=" "
 

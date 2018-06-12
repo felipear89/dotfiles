@@ -10,41 +10,6 @@
 
 [alias]
 
-  # branch
-  b  = branch
-  bs = show-branch -a
-  bc = checkout -b
-  bl = branch -av
-  bx = branch --delete
-  bX = branch --delete --force
-  bm = branch --move
-  bM = branch --move --force
-  
-  # fetch
-  f   = fetch
-  fm  = pull # fetch and merge
-  fo  = fetch origin
-  fu  = fetch upstream
-  
-  # merge
-  m   = merge
-  mom = merge origin/master
-
-  # rebase
-  r   = rebase
-  rom = rebase origin/master
-  
-  # push
-  p   = push
-  po  = push -u origin
-  pa  = push --all
-  pt  = push --tags
-
-  # index
-  s   = status
-  a   = add
-  co   = checkout
-
   # commit
   c      = commit -v
   ca     = commit --all -v
@@ -84,13 +49,13 @@
   lastweek = log --author=Felipe --pretty=oneline --all --abbrev-commit --since=7.day
 
   find = "!git ls-files | grep -i"
-  
+
   prior-hash      = "!ph() { git log --pretty=format:'%h' -1 --skip=$1 $2; }; ph"
   diff-prev-easy  = "!dp() { git diff $(git prior-hash $1 $2).. $2; }; dp"
   diff-prev       = "!dp() { git diff $(git prior-hash $1 $2)..$(git prior-hash $(($1 - 1)) $2) $2; }; dp"
   difftool-prev-easy  = "!dp() { git difftool $(git prior-hash $1 $2).. $2; }; dp"
   difftool-prev       = "!dp() { git difftool $(git prior-hash $1 $2)..$(git prior-hash $(($1 - 1)) $2) $2; }; dp"
-  
+
   first-commit = ! git rev-list ^master HEAD | tail -n 1
 
   # cleanup
@@ -109,18 +74,26 @@
 	excludesfile = ~/.gitignore_global
 	editor = vim
 
-[diff]
-	tool = p4mergetool
-[difftool "p4mergetool"]
-  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
-
-[merge]
-	tool = p4mergetool
-[mergetool "p4mergetool"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
-	trustExitCode = false
-  keepBackup = false
-  keepTemporaries = false
-  
 [commit]
 	template = ~/.git_commit_msg.txt
+
+[merge]
+    keepBackup = false;
+    tool = p4merge
+[mergetool]
+    prompt = false
+[mergetool "p4merge"]
+    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
+[diff]
+    tool = p4merge
+[difftool]
+    prompt = false
+[difftool "p4merge"]
+    cmd = p4merge "$LOCAL" "$REMOTE"
+    keepTemporaries = false
+    trustExitCode = false
+  keepBackup = false
+
