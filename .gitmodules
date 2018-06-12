@@ -16,6 +16,6 @@
 [submodule "vim/.vim/bundle/gruvbox"]
 	path = vim/.vim/bundle/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
-[submodule "/Users/felipe/.dotfiles/vim/.vim/bundle/supertab"]
-	path = /Users/felipe/.dotfiles/vim/.vim/bundle/supertab
+[submodule "vim/.vim/bundle/supertab"]
+	path = vim/.vim/bundle/supertab
 	url = git@github.com:ervandew/supertab.git
