@@ -19,4 +19,4 @@ export EDITOR="vim"
 # export PATH=$PATH:$GOPATH/bin
 # eval "$(goenv init -)"
 
-source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+#source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
