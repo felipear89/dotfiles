@@ -12,7 +12,7 @@ brew update
 brew upgrade
 brew cleanup
 
-brew cask install p4merge
+brew cask install p4v
 brew cask install keepingyouawake
 brew cask install docker
 brew cask install postman
@@ -28,11 +28,9 @@ brew install ack
 brew install htop
 brew install ssh-copy-id
 brew install git
-brew install nvm
 brew install pyenv
 brew install rbenv
 brew install goenv
-brew install oath-toolkit # (umask 0077;pbpaste > ~/.totp_github) # totp() { oathtool --totp -b $(<~/".totp_${1:-wmt}") | pbcopy; }
 
 # Install oh-my-zsh
 if ! [ -d "${HOME}/.oh-my-zsh" ]; then
@@ -50,27 +48,26 @@ cd $HOME/.dotfiles
 stow git
 stow oh-my-zsh
 stow ssh
+stow vim
 
 # Setup rbenv
 if ! [ -d "${HOME}/.rbenv" ]; then
+    echo "installing ruby"
     rbenv init
     eval "$(rbenv init -)"
-    rbenv install 2.4.1
-    rbenv global 2.4.1
+    rbenv install 2.5.1
+    rbenv global 2.5.1
 fi
 
 # Setup nvm
-if ! [ -d "${HOME}/.nvm" ]; then
-    mkdir ~/.nvm
-    export NVM_DIR="$HOME/.nvm"
-    . "/usr/local/opt/nvm/nvm.sh"
-fi
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
 # Setup pyenv
 if ! [ -d "${HOME}/.pyenv" ]; then
-    pyenv install 3.6
-    pyenv install 2.7
-    pyenv global 3.6.2
+    echo "installing python"
+    pyenv install 3.7.0
+    pyenv install 2.7.15
+    pyenv global 3.7.0
 fi
 if ! which pip >/dev/null; then
     echo "Installing PIP"
@@ -82,8 +79,8 @@ fi
 if ! [ -d "${HOME}/.sdkman" ]; then
     curl -s "https://get.sdkman.io" | bash
     source "$HOME/.sdkman/bin/sdkman-init.sh"
-    sdk install java 8u131
-    sdk default java 8u131
+    sdk install java 8.0.181-oracle
+    sdk default java 8.0.181-oracle
     sdk install maven
 fi
 

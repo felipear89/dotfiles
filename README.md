@@ -2,7 +2,7 @@
 I use stow to create symbolic links and brew to install my favorite apps
 
 ## Just do it
-1. Checkout: `git clone git@github.com:felipear89/dotfiles.git ~/.dotfiles`
+1. Checkout: `git clone --recurse-submodules git@github.com:felipear89/dotfiles.git ~/.dotfiles`
 2. Give permission to run: `chmod +x ~/.dotfiles/bin/install.sh`
 3. Run: `~/.dotfiles/bin/install.sh`
 
@@ -27,5 +27,9 @@ Ex:
 ## Commands
 Execute git branches inside all sub folders
 `find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git branches" \;`
+
 Generate ctags
 `ctags -R .`
+
+Create p4merge alias
+`sudo ln -s /Applications/p4merge.app/Contents/MacOS/p4merge /usr/local/bin/p4merge`
