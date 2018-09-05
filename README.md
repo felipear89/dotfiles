@@ -31,5 +31,3 @@ Execute git branches inside all sub folders
 Generate ctags
 `ctags -R .`
 
-Create p4merge alias
-`sudo ln -s /Applications/p4merge.app/Contents/MacOS/p4merge /usr/local/bin/p4merge`

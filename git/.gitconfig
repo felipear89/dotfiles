@@ -78,22 +78,15 @@
 	template = ~/.git_commit_msg.txt
 
 [merge]
-    keepBackup = false;
-    tool = p4merge
+  keepBackup = false;
+	tool = vscode
 [mergetool]
-    prompt = false
-[mergetool "p4merge"]
-    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-    keepTemporaries = false
-    trustExitCode = false
-    keepBackup = false
-[diff]
-    tool = p4merge
-[difftool]
-    prompt = false
-[difftool "p4merge"]
-    cmd = p4merge "$LOCAL" "$REMOTE"
-    keepTemporaries = false
-    trustExitCode = false
-  keepBackup = false
+  prompt = false
 
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+
+[mergetool "vscode"]
+	cmd = "code --wait "
