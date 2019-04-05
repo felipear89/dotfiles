@@ -20,3 +20,6 @@ alias mvnSonarLocal='mvn clean jacoco:prepare-agent package -U jacoco:report son
 alias mvnSonarMutationLocal='mvn clean jacoco:prepare-agent install -U org.pitest:pitest-maven:mutationCoverage jacoco:report sonar:sonar -Dsonar.host.url="http://127.0.0.1:9001"'
 alias docker-sonar-up='sudo docker run -d --name sonarqubeLocalNetshoes -p 9001:9000 -p 9092:9092 arturbdr/sonarqube-pluggins:6.7.1.1-lts'
 alias mutationCov='mvn org.pitest:pitest-maven:mutationCoverage'
+alias run_webstore='export GATEWAY_URL=https://tmb-hmg-free-wsgateway.ns2online.com.br K8S_INGRESS=https://hmg-ingress.netshoes.io NODE_ENV=local && nodemon --inspect'
+
+kubenv () { export KUBECONFIG="$HOME/.kube/personal-kubeconfig-$1.json" ;}
