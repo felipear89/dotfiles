@@ -17,6 +17,8 @@
   cam    = commit --all --message
   camend = commit --amend --reuse-message HEAD
 
+  pull-submod = pull --recurse-submodules
+
   # diff
   d    = diff               # Diff working dir to index
   dc   = diff --staged      # Diff index to HEAD

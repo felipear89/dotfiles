@@ -19,3 +19,6 @@
 [submodule "vim/.vim/bundle/supertab"]
 	path = vim/.vim/bundle/supertab
 	url = git@github.com:ervandew/supertab.git
+[submodule "/Users/felipe/.dotfiles/vim/.vim/bundle/editorconfig-vim"]
+	path = /Users/felipe/.dotfiles/vim/.vim/bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
