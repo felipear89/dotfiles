@@ -18,6 +18,7 @@
   camend = commit --amend --reuse-message HEAD
 
   pull-submod = pull --recurse-submodules
+  pull-submod-init = submodule update --init --recursive
 
   # diff
   d    = diff               # Diff working dir to index
