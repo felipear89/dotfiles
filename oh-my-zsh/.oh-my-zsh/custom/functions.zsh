@@ -124,7 +124,7 @@ clean-empty-dir() {
 # Find files
 ff() { find . -type f -iname '*'$*'*' -ls ; }
 
-
+# ex: add-vim-plugin https://github.com/editorconfig/editorconfig-vim.git
 add-vim-plugin() {
   dest=$(echo "$1" | sed -E "s/^.*\/|.git//g")
   git submodule add $1 ~/.dotfiles/vim/.vim/bundle/$dest
