@@ -1,5 +1,4 @@
 execute pathogen#infect()
-
 set nocompatible  			" This must be first, because it changes other options as side effect
 filetype on             " vim can detect the type of file that is edited.  This is done by checking the file name and sometimes by inspecting the contents of the file for specific text.
 syntax enable           " syntax highlighting enables Vim to show parts of the text in another font or color
@@ -95,3 +94,12 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 " Search in tags
 nnoremap <leader>. :CtrlPTag<cr>
+
+" fzf search
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
+
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+" set rtp+=/usr/local/opt/fzf

@@ -7,7 +7,7 @@ sudo add-apt-repository ppa:lazygit-team/daily
 sudo apt update
 sudo apt -y upgrade
 sudo apt install build-essential zsh git tig stow vim ack htop curl htop wget docker-ce lazygit \
-  fonts-hack-ttf fonts-firacode gcc make
+  fonts-hack-ttf fonts-firacode silversearcher-ag fzf gcc make
 
 if ! [ -d "${HOME}/.oh-my-zsh" ];
 then
