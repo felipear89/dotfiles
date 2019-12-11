@@ -7,13 +7,15 @@ sudo add-apt-repository ppa:lazygit-team/daily
 sudo apt update
 sudo apt -y upgrade
 sudo apt install build-essential zsh git tig stow vim ack htop curl htop wget docker-ce lazygit \
-  fonts-hack-ttf fonts-firacode silversearcher-ag fzf gcc make
+  fonts-hack-ttf fonts-firacode silversearcher-ag gcc make
 
 if ! [ -d "${HOME}/.oh-my-zsh" ];
 then
   echo "Oh my god! Installing oh-my-zsh..."
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
 if ! [ -d "${HOME}/.pyenv" ];
 then
