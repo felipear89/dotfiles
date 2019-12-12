@@ -25,3 +25,6 @@
 [submodule "/Users/felipe/.dotfiles/vim/.vim/bundle/fzf.vim"]
 	path = /Users/felipe/.dotfiles/vim/.vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "/Users/felipe/.dotfiles/vim/.vim/bundle/vim-fugitive"]
+	path = /Users/felipe/.dotfiles/vim/.vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
