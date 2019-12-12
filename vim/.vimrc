@@ -93,13 +93,17 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " Search in tags
-nnoremap <leader>. :CtrlPTag<cr>
+" nnoremap <leader>. :CtrlPTag<cr>
 
 " fzf search
 nmap ; :Buffers<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>r :Tags<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>t :Tags<CR>
+nmap <Leader>a :Ag<CR>
 
 " [Tags] Command to generate tags file
 let g:fzf_tags_command = 'ctags -R'
+
+" fzf on macbook
 " set rtp+=/usr/local/opt/fzf
+

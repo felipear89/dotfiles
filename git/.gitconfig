@@ -81,15 +81,22 @@
 	template = ~/.git_commit_msg.txt
 
 [merge]
-  keepBackup = false;
-	tool = vscode
+  tool = meld
+
+[mergetool "meld"]
+  cmd = meld --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output \"$MERGED\" --label \"MERGE (REMOTE BASE MY)\"
+  trustExitCode = false
+
 [mergetool]
+  # don't ask if we want to skip merge
   prompt = false
+
+  # don't create backup *.orig files
+  keepBackup = false
+
 
 [diff]
   tool = vscode
 [difftool "vscode"]
   cmd = code --wait --diff $LOCAL $REMOTE
 
-[mergetool "vscode"]
-	cmd = "code --wait "
