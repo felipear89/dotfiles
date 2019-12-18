@@ -16,3 +16,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+alias two-monitors="xrandr --output HDMI-1 --auto && xrandr --output HDMI-1 --above eDP-1"
+alias single-monitor="xrandr --output HDMI-1 --off"
+alias mirror-monitor="xrandr --output HDMI-1 --auto --same-as eDP-1"
+alias mouse-logitech="xinput --set-prop \"Logitech M510\" \"libinput Accel Speed\" -0.5"
