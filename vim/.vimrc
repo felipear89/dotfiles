@@ -42,7 +42,7 @@ nnoremap <F3> :set hlsearch!<CR>
 
 " Fast saving
 nmap <leader>w :w!<cr>
-nmap <leader>q :q<cr>
+nmap <leader>q :q!<cr>
 nmap <leader>x :x!<cr>
 
 autocmd BufWritePre * :%s/\s\+$//e " remove whitespaces on save.
