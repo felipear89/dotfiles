@@ -20,4 +20,5 @@ alias two-monitors="xrandr --output HDMI-1 --auto && xrandr --output HDMI-1 --ab
 alias single-monitor="xrandr --output HDMI-1 --off"
 alias mirror-monitor="xrandr --output HDMI-1 --auto --same-as eDP-1"
 alias mouse-logitech="xinput --set-prop \"Logitech M510\" \"libinput Accel Speed\" -0.5"
-alias mouse-dell="xinput --set-prop \"DELL0839:00 04F3:30C3 Touchpad\" \"libinput Accel Speed\" -0.5"
+alias mouse-dell="xinput --set-prop \"DELL0839:00 04F3:30C3 Touchpad\" \"libinput Accel Speed\" -0.7"
+alias k8s-restart="kubectl rollout restart deploy"
