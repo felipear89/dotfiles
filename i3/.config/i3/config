@@ -171,8 +171,19 @@ mode "$mode_system" {
 }
 bindsym $mod+x mode "$mode_system"
 
-# for_window [class="spotify"] mark "spotify", move scratchpad
-# bindsym $mod+Ctrl+s [con_mark="spotify"] scratchpad show
+set $mode_launcher Launch: [p] flameshot [m] arandr [s] pavucontrol
+mode "$mode_launcher" {
+    bindsym exec flameshot gui
+    bindsym m exec arandr
+    bindsym s exec pavucontrol
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+o mode "$mode_launcher"
+
+for_window [class="Spotify"] mark "spotify", move scratchpad
+bindsym $mod+Ctrl+s [con_mark="spotify"] scratchpad show
 
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink +10%
@@ -188,12 +199,13 @@ bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness with n
 bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness with notification
 
 bindsym $mod+m move workspace to output up
-bindsym $mod+Print exec flameshot
+bindsym $mod+q exec "rofi -modi window,drun,run -show drun -sidebar-mode -terminal termite -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
 
 exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id parcellite
+exec --no-startup-id flameshot
 
 # Restore GNOME's settings
 # exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
@@ -202,4 +214,3 @@ exec --no-startup-id parcellite
 # exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
 
 exec_always feh --bg-scale ~/Downloads/wallpaper2.jpg
-
