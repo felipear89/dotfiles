@@ -18,7 +18,7 @@ exec --no-startup-id dunst
 exec_always feh --bg-scale ~/Downloads/wallpaper2.jpg
 
 # start a terminal
-bindsym $super+Return exec konsole
+bindsym $super+Return exec gnome-terminal
 
 # start dmenu (a program launcher)
 bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
