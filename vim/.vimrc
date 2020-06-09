@@ -12,6 +12,8 @@ set autoindent				  " does nothing more than copy the indentation from the previ
 set shiftwidth=2        " number of spaces to use for autoindenting
 set cursorline          " highlight current line
 set expandtab           " tabs are spaces
+set mouse=a             " enable mouse
+
 
 let g:gruvbox_contrast_dark='medium'
 colorscheme gruvbox
