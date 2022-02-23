@@ -8,6 +8,7 @@ Plug 'preservim/nerdtree'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-surround'
 Plug 'arcticicestudio/nord-vim'
+Plug 'doums/darcula'
 
 call plug#end()
 
@@ -39,9 +40,9 @@ set history=1000              " remember more commands and search history
 set undolevels=1000           " use many muchos levels of undo
 set encoding=UTF-8
 
-colorscheme nord
+colorscheme darcula
 set guifont=hack:h16
-set background=light
+set background=dark
 
 let mapleader=" "
 
