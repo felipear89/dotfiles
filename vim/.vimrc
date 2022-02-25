@@ -1,3 +1,4 @@
+" Required the_silver_searcher
 call plug#begin()
 
 Plug 'junegunn/vim-easy-align'
@@ -8,7 +9,13 @@ Plug 'preservim/nerdtree'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-surround'
 Plug 'arcticicestudio/nord-vim'
+Plug 'mileszs/ack.vim'
+Plug 'ayu-theme/ayu-vim'
 Plug 'doums/darcula'
+Plug 'easymotion/vim-easymotion'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -38,13 +45,19 @@ set laststatus=2              " always show status line
 set number                    " Show line number
 set history=1000              " remember more commands and search history
 set undolevels=1000           " use many muchos levels of undo
+set noswapfile                " no swap files
 set encoding=UTF-8
 
-colorscheme darcula
+colorscheme gruvbox8_hard
 set guifont=hack:h16
 set background=dark
 
 let mapleader=" "
+
+" Fast saving
+nmap <leader>w :w!<cr>
+nmap <leader>q :q<cr>
+
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -95,4 +108,9 @@ let g:ctrlp_custom_ignore = {
 
 " Ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" The Silver Searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
